@@ -1,7 +1,12 @@
 Rails.application.routes.draw do
-  get 'static_pages/home'
-
+  # maps requests for the URL /static_pages/home to the home action in the Static Pages controller
+  # using get we arrange for the route to respond to a GET request
+  # In our case, this means that when we generate a home action inside the Static Pages controller we automatically get a page at the address /static_pages/home
+  # GET is the most common HTTP operation, used for reading data on the web; it just means “get a page”, 
+  # and every time you visit a site like http://www.google.com/ or http://www.wikipedia.org/ your browser is submitting a GET request.
+  root 'static_pages#home'
   get 'static_pages/help'
+  get 'static_pages/about'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
