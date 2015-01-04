@@ -1,13 +1,37 @@
 Rails.application.routes.draw do
+  get 'users/new'
+
   # maps requests for the URL /static_pages/home to the home action in the Static Pages controller
   # using get we arrange for the route to respond to a GET request
   # In our case, this means that when we generate a home action inside the Static Pages controller we automatically get a page at the address /static_pages/home
   # GET is the most common HTTP operation, used for reading data on the web; it just means “get a page”, 
   # and every time you visit a site like http://www.google.com/ or http://www.wikipedia.org/ your browser is submitting a GET request.
-  root 'static_pages#home'
-  get 'static_pages/help'
-  get 'static_pages/about'
+  
+  
+  
+  
+  # root 'static_pages#home'
+  # get 'static_pages/help'
+  # get 'static_pages/about'
+  # get 'static_pages/contact'
+  
+  # root_path -> '/'
+  # root_url  -> 'http://www.example.com/'
+  
+  
+  
+  # The second of these patterns routes a GET request for the URL /help 
+  # to the help action in the Static Pages controller, 
+  # so that we can use the URL /help in place of the more verbose /static_pages/help. As with the rule for the root route, this creates two named routes, help_path and help_url:
 
+  # help_path -> '/help'
+  # help_url  -> 'http://www.example.com/help'
+  
+  root             'static_pages#home'
+  get 'help'    => 'static_pages#help'
+  get 'about'   => 'static_pages#about'
+  get 'contact' => 'static_pages#contact'
+  get 'signup'  => 'users#new'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
